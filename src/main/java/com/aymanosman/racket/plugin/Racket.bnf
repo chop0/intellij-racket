@@ -1,0 +1,20 @@
+{
+  parserClass="com.aymanosman.racket.plugin.parser.RacketParser"
+
+  extends="com.intellij.extapi.psi.ASTWrapperPsiElement"
+
+  psiClassPrefix="Racket"
+  psiImplClassSuffix="Impl"
+  psiPackage="com.aymanosman.racket.plugin.psi"
+  psiImplPackage="com.aymanosman.racket.plugin.psi.impl"
+
+  elementTypeHolderClass="com.aymanosman.racket.plugin.psi.RacketTypes"
+  elementTypeClass="com.aymanosman.racket.plugin.psi.RacketElementType"
+  tokenTypeClass="com.aymanosman.racket.plugin.psi.RacketTokenType"
+}
+
+RacketFile ::= Item_*
+
+private Item_ ::= (Property | COMMENT | CRLF)
+
+Property ::= (KEY? SEPARATOR VALUE?) | KEY
