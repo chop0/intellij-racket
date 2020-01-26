@@ -18,6 +18,8 @@
                   fieldName="INSTANCE"
                   language="Racket"
                   extensions="rkt" />
+        <lang.parserDefinition language="Racket"
+                               implementationClass="com.aymanosman.racket.plugin.RacketParserDefinition" />
     </extensions>
 
     <actions>
