@@ -10,16 +10,22 @@
 
     <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
          on how to target different products -->
-    <depends>com.intellij.modules.platform</depends>
+    <!--    <depends>com.intellij.modules.platform</depends>-->
+    <depends>com.intellij.modules.java</depends>
 
     <extensions defaultExtensionNs="com.intellij">
         <fileType name="Racket file"
                   implementationClass="com.aymanosman.racket.plugin.RacketFileType"
                   fieldName="INSTANCE"
                   language="Racket"
-                  extensions="rkt" />
+                  extensions="rkt"/>
         <lang.parserDefinition language="Racket"
-                               implementationClass="com.aymanosman.racket.plugin.RacketParserDefinition" />
+                               implementationClass="com.aymanosman.racket.plugin.RacketParserDefinition"/>
+        <lang.syntaxHighlighterFactory language="Racket"
+                                       implementationClass="com.aymanosman.racket.plugin.RacketSyntaxHighlighterFactory"/>
+        <colorSettingsPage implementation="com.aymanosman.racket.plugin.RacketColorSettingsPage"/>
+        <annotator language="Racket"
+                   implementationClass="com.aymanosman.racket.plugin.RacketAnnotator"/>
     </extensions>
 
     <actions>
