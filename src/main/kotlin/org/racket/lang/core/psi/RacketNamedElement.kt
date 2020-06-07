@@ -1,7 +1,5 @@
-package org.racket.lang.core.psi;
+package org.racket.lang.core.psi
 
-import com.intellij.psi.PsiNameIdentifierOwner;
+import com.intellij.psi.PsiNameIdentifierOwner
 
-public interface RacketNamedElement extends PsiNameIdentifierOwner {
-
-}
+interface RacketNamedElement : PsiNameIdentifierOwner

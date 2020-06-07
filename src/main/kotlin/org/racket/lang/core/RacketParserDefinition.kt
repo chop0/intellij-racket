@@ -1,74 +1,62 @@
-package org.racket.lang.core;
+package org.racket.lang.core
 
-import com.intellij.lang.ASTNode;
-import com.intellij.lang.ParserDefinition;
-import com.intellij.lang.PsiParser;
-import com.intellij.lexer.Lexer;
-import com.intellij.openapi.project.Project;
-import com.intellij.psi.FileViewProvider;
-import com.intellij.psi.PsiElement;
-import com.intellij.psi.PsiFile;
-import com.intellij.psi.TokenType;
-import com.intellij.psi.tree.IFileElementType;
-import com.intellij.psi.tree.TokenSet;
-import org.jetbrains.annotations.NotNull;
-import org.racket.lang.core.parser.RacketParser;
-import org.racket.lang.core.psi.RacketFile;
-import org.racket.lang.core.psi.RacketTypes;
+import com.intellij.lang.ASTNode
+import com.intellij.lang.ParserDefinition
+import com.intellij.lang.ParserDefinition.SpaceRequirements
+import com.intellij.lang.PsiParser
+import com.intellij.lexer.Lexer
+import com.intellij.openapi.project.Project
+import com.intellij.psi.FileViewProvider
+import com.intellij.psi.PsiElement
+import com.intellij.psi.PsiFile
+import com.intellij.psi.TokenType
+import com.intellij.psi.tree.IFileElementType
+import com.intellij.psi.tree.TokenSet
+import org.racket.lang.core.lexer.RacketLexerAdapter
+import org.racket.lang.core.parser.RacketParser
+import org.racket.lang.core.psi.RacketFile
+import org.racket.lang.core.psi.RacketTypes
 
-public class RacketParserDefinition implements ParserDefinition {
-    public static final TokenSet WHITE_SPACES = TokenSet.create(TokenType.WHITE_SPACE);
-    public static final TokenSet COMMENTS = TokenSet.create(RacketTypes.COMMENT);
-
-    public static final IFileElementType FILE = new IFileElementType(RacketLanguage.INSTANCE);
-
-    @NotNull
-    @Override
-    public Lexer createLexer(Project project) {
-        return new RacketLexerAdapter();
+class RacketParserDefinition : ParserDefinition {
+    override fun createLexer(project: Project): Lexer {
+        return RacketLexerAdapter()
     }
 
-    @NotNull
-    public TokenSet getWhitespaceTokens() {
-        return WHITE_SPACES;
+    override fun getWhitespaceTokens(): TokenSet {
+        return WHITE_SPACES
     }
 
-    @NotNull
-    @Override
-    public TokenSet getCommentTokens() {
-        return COMMENTS;
+    override fun getCommentTokens(): TokenSet {
+        return COMMENTS
     }
 
-    @NotNull
-    @Override
-    public TokenSet getStringLiteralElements() {
-        return TokenSet.EMPTY;
+    override fun getStringLiteralElements(): TokenSet {
+        return TokenSet.EMPTY
     }
 
-    @NotNull
-    @Override
-    public PsiParser createParser(final Project project) {
-        return new RacketParser();
+    override fun createParser(project: Project): PsiParser {
+        return RacketParser()
     }
 
-    @Override
-    public IFileElementType getFileNodeType() {
-        return FILE;
+    override fun getFileNodeType(): IFileElementType {
+        return FILE
     }
 
-    @Override
-    public PsiFile createFile(FileViewProvider viewProvider) {
-        return new RacketFile(viewProvider);
+    override fun createFile(viewProvider: FileViewProvider): PsiFile {
+        return RacketFile(viewProvider)
     }
 
-    @Override
-    public SpaceRequirements spaceExistenceTypeBetweenTokens(ASTNode left, ASTNode right) {
-        return SpaceRequirements.MAY;
+    override fun spaceExistenceTypeBetweenTokens(left: ASTNode, right: ASTNode): SpaceRequirements {
+        return SpaceRequirements.MAY
     }
 
-    @NotNull
-    @Override
-    public PsiElement createElement(ASTNode node) {
-        return RacketTypes.Factory.createElement(node);
+    override fun createElement(node: ASTNode): PsiElement {
+        return RacketTypes.Factory.createElement(node)
+    }
+
+    companion object {
+        val WHITE_SPACES = TokenSet.create(TokenType.WHITE_SPACE)
+        val COMMENTS = TokenSet.create(RacketTypes.COMMENT)
+        val FILE = IFileElementType(RacketLanguage)
     }
 }

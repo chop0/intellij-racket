@@ -1,18 +1,18 @@
-package org.racket.lang.core.psi;
+package org.racket.lang.core.psi
 
-import com.intellij.openapi.project.Project;
-import com.intellij.psi.PsiFileFactory;
-import org.racket.lang.core.RacketFileType;
+import com.intellij.openapi.project.Project
+import com.intellij.psi.PsiFileFactory
+import org.racket.lang.core.RacketFileType
 
-public class RacketElementFactory {
-    public static RacketForm createForm(Project project, String name) {
-        final RacketFile file = createFile(project, name);
-        return (RacketForm) file.getFirstChild();
+object RacketElementFactory {
+    fun createForm(project: Project?, name: String?): RacketForm {
+        val file = createFile(project, name)
+        return file.firstChild as RacketForm
     }
 
-    public static RacketFile createFile(Project project, String text) {
-        String name = "dummy.rkt";
-        return (RacketFile) PsiFileFactory.getInstance(project)
-                .createFileFromText(name, RacketFileType.INSTANCE, text);
+    fun createFile(project: Project?, text: String?): RacketFile {
+        val name = "dummy.rkt"
+        return PsiFileFactory.getInstance(project)
+                .createFileFromText(name, RacketFileType.Companion.INSTANCE, text!!) as RacketFile
     }
 }

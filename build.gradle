@@ -1,5 +1,7 @@
 plugins {
     id 'java'
+    id "org.jetbrains.kotlin.jvm" version "1.3.72"
+    id "org.jetbrains.grammarkit" version "2020.2.1"
     id "org.jetbrains.intellij" version "0.4.18"
 }
 
@@ -8,7 +10,7 @@ version '1.0-SNAPSHOT'
 
 sourceCompatibility = 1.8
 
-sourceSets.main.java.srcDirs 'src/main/gen'
+sourceSets.main.java.srcDirs 'gen'
 
 repositories {
     mavenCentral()
@@ -23,8 +25,37 @@ intellij {
     version ideaVersion
     plugins 'java'
 }
+
 patchPluginXml {
     changeNotes """
       Add change notes here.<br>
       <em>most HTML tags may be used</em>"""
+}
+
+// TASKS
+apply plugin: 'org.jetbrains.grammarkit'
+
+import org.jetbrains.grammarkit.tasks.GenerateLexer
+import org.jetbrains.grammarkit.tasks.GenerateParser
+
+task generateLexer(type: GenerateLexer) {
+    source = "src/main/grammars/Racket.flex"
+    targetDir = "gen/org/racket/lang/core/lexer/"
+    targetClass = "RacketLexer"
+    purgeOldFiles = true
+    skeleton = "src/main/grammars/idea-flex.skeleton"
+}
+
+task generateParser(type: GenerateParser) {
+    dependsOn generateLexer
+
+    source = "src/main/grammars/Racket.bnf"
+    targetRoot = "gen"
+    pathToParser = "/org/racket/lang/core/parser/RacketParser.java"
+    pathToPsiRoot = "/org/racket/lang/core/psi"
+    purgeOldFiles = true
+}
+
+tasks.compileKotlin {
+    dependsOn(generateParser)
 }

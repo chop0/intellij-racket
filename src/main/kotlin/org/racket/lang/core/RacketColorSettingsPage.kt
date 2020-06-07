@@ -1,71 +1,54 @@
-package org.racket.lang.core;
+package org.racket.lang.core
 
-import com.intellij.openapi.editor.colors.TextAttributesKey;
-import com.intellij.openapi.fileTypes.SyntaxHighlighter;
-import com.intellij.openapi.options.colors.AttributesDescriptor;
-import com.intellij.openapi.options.colors.ColorDescriptor;
-import com.intellij.openapi.options.colors.ColorSettingsPage;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import com.intellij.openapi.editor.colors.TextAttributesKey
+import com.intellij.openapi.fileTypes.SyntaxHighlighter
+import com.intellij.openapi.options.colors.AttributesDescriptor
+import com.intellij.openapi.options.colors.ColorDescriptor
+import com.intellij.openapi.options.colors.ColorSettingsPage
+import javax.swing.Icon
 
-import javax.swing.*;
-import java.util.Map;
-
-public class RacketColorSettingsPage implements ColorSettingsPage {
-    public static final AttributesDescriptor[] DESCRIPTORS = new AttributesDescriptor[]{
-            new AttributesDescriptor("Identifier", RacketSyntaxHighlighter.IDENTIFIER),
-            new AttributesDescriptor("Keyword", RacketSyntaxHighlighter.KEYWORD),
-            new AttributesDescriptor("Comment", RacketSyntaxHighlighter.COMMENT),
-            new AttributesDescriptor("String", RacketSyntaxHighlighter.STRING),
-            new AttributesDescriptor("Constant", RacketSyntaxHighlighter.CONSTANT), // TODO this is confusing QUOTE?
-            new AttributesDescriptor("Number", RacketSyntaxHighlighter.NUMBER),
-            new AttributesDescriptor("Boolean", RacketSyntaxHighlighter.BOOLEAN),
-            new AttributesDescriptor("Parentheses", RacketSyntaxHighlighter.PARENTHESES),
-    };
-
-    @Nullable
-    @Override
-    public Icon getIcon() {
-        return RacketIcons.FILE;
+class RacketColorSettingsPage : ColorSettingsPage {
+    override fun getIcon(): Icon? {
+        return RacketIcons.FILE
     }
 
-    @NotNull
-    @Override
-    public SyntaxHighlighter getHighlighter() {
-        return new RacketSyntaxHighlighter();
+    override fun getHighlighter(): SyntaxHighlighter {
+        return RacketSyntaxHighlighter()
     }
 
-    @NotNull
-    @Override
-    public String getDemoText() {
-        return "#lang racket/base\n" +
-                ";; This is a comment\n" +
-                "()\n" +
-                "(define (a-thing a [b 3] #:c 8)\n" +
-                "  (list 42 #t #f #true #false \"hello world\" #\"\\x00\" 'fixme))";
+    override fun getDemoText(): String {
+        return """#lang racket/base
+;; This is a comment
+()
+(define (a-thing a [b 3] #:c 8)
+  (list 42 #t #f #true #false "hello world" #"\x00" 'fixme))"""
     }
 
-    @Nullable
-    @Override
-    public Map<String, TextAttributesKey> getAdditionalHighlightingTagToDescriptorMap() {
-        return null;
+    override fun getAdditionalHighlightingTagToDescriptorMap(): Map<String, TextAttributesKey>? {
+        return null
     }
 
-    @NotNull
-    @Override
-    public AttributesDescriptor[] getAttributeDescriptors() {
-        return DESCRIPTORS;
+    override fun getAttributeDescriptors(): Array<AttributesDescriptor> {
+        return DESCRIPTORS
     }
 
-    @NotNull
-    @Override
-    public ColorDescriptor[] getColorDescriptors() {
-        return ColorDescriptor.EMPTY_ARRAY;
+    override fun getColorDescriptors(): Array<ColorDescriptor> {
+        return ColorDescriptor.EMPTY_ARRAY
     }
 
-    @NotNull
-    @Override
-    public String getDisplayName() {
-        return "Racket";
+    override fun getDisplayName(): String {
+        return "Racket"
+    }
+
+    companion object {
+        val DESCRIPTORS = arrayOf(
+                AttributesDescriptor("Identifier", RacketSyntaxHighlighter.Companion.IDENTIFIER),
+                AttributesDescriptor("Keyword", RacketSyntaxHighlighter.Companion.KEYWORD),
+                AttributesDescriptor("Comment", RacketSyntaxHighlighter.Companion.COMMENT),
+                AttributesDescriptor("String", RacketSyntaxHighlighter.Companion.STRING),
+                AttributesDescriptor("Constant", RacketSyntaxHighlighter.Companion.CONSTANT),  // TODO this is confusing QUOTE?
+                AttributesDescriptor("Number", RacketSyntaxHighlighter.Companion.NUMBER),
+                AttributesDescriptor("Boolean", RacketSyntaxHighlighter.Companion.BOOLEAN),
+                AttributesDescriptor("Parentheses", RacketSyntaxHighlighter.Companion.PARENTHESES))
     }
 }

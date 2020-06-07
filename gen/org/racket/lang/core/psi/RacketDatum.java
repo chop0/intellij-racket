@@ -1,13 +1,12 @@
 // This is a generated file. Not intended for manual editing.
 package org.racket.lang.core.psi;
 
-import java.util.List;
-import org.jetbrains.annotations.*;
 import com.intellij.psi.PsiElement;
+import org.jetbrains.annotations.NotNull;
 
-public interface RacketItem extends PsiElement {
+public interface RacketDatum extends PsiElement {
 
-  @Nullable
+  @NotNull
   RacketForm getForm();
 
 }

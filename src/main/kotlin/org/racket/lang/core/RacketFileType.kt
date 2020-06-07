@@ -1,39 +1,26 @@
-package org.racket.lang.core;
+package org.racket.lang.core
 
-import com.intellij.openapi.fileTypes.LanguageFileType;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import com.intellij.openapi.fileTypes.LanguageFileType
+import javax.swing.Icon
 
-import javax.swing.*;
-
-public class RacketFileType extends LanguageFileType {
-    public static final RacketFileType INSTANCE = new RacketFileType();
-
-    private RacketFileType() {
-        super(RacketLanguage.INSTANCE);
+class RacketFileType private constructor() : LanguageFileType(RacketLanguage) {
+    override fun getName(): String {
+        return "Racket file"
     }
 
-    @NotNull
-    @Override
-    public String getName() {
-        return "Racket file";
+    override fun getDescription(): String {
+        return "Racket language file"
     }
 
-    @NotNull
-    @Override
-    public String getDescription() {
-        return "Racket language file";
+    override fun getDefaultExtension(): String {
+        return "rkt"
     }
 
-    @NotNull
-    @Override
-    public String getDefaultExtension() {
-        return "rkt";
+    override fun getIcon(): Icon? {
+        return RacketIcons.FILE
     }
 
-    @Nullable
-    @Override
-    public Icon getIcon() {
-        return RacketIcons.FILE;
+    companion object {
+        val INSTANCE = RacketFileType()
     }
 }

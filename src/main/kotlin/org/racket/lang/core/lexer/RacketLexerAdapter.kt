@@ -1,11 +1,6 @@
-package org.racket.lang.core;
+package org.racket.lang.core.lexer
 
-import com.intellij.lexer.FlexAdapter;
+import com.intellij.lexer.FlexAdapter
+import java.io.Reader
 
-import java.io.Reader;
-
-public class RacketLexerAdapter extends FlexAdapter {
-    public RacketLexerAdapter() {
-        super(new RacketLexer((Reader) null));
-    }
-}
+class RacketLexerAdapter : FlexAdapter(RacketLexer(null as Reader?))

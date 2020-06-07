@@ -1,4 +1,4 @@
-package org.racket.lang.core;
+package org.racket.lang.core.lexer;
 
 import com.intellij.lexer.FlexLexer;
 import com.intellij.psi.tree.IElementType;

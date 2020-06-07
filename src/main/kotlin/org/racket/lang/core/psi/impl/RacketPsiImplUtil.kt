@@ -1,5 +1,3 @@
-package org.racket.lang.core.psi.impl;
+package org.racket.lang.core.psi.impl
 
-public class RacketPsiImplUtil {
-
-}
+class RacketPsiImplUtil
