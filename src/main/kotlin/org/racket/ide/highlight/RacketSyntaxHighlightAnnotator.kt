@@ -36,7 +36,8 @@ class RacketSyntaxHighlightAnnotator : Annotator {
     }
 
     companion object {
-        private val KEYWORDS: Set<String> = HashSet(Arrays.asList( // TODO: Obviously this is not a scalable solution.
+        // TODO: Obviously this is not a scalable solution.
+        private val KEYWORDS: Set<String> = HashSet(listOf(
                 "define",
                 "raise-argument-error",
                 "make-parameter",
