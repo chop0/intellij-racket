@@ -11,24 +11,25 @@ import java.util.*
 
 class RacketSyntaxHighlightAnnotator : Annotator {
     override fun annotate(element: PsiElement, holder: AnnotationHolder) {
-        if (element is LeafPsiElement) {
-            val leaf = element
-            if (leaf.elementType === RacketTypes.HASH_LANG) {
-                annotate_hash_lang(holder, leaf)
-            } else if (leaf.elementType === RacketTypes.IDENTIFIER) {
-                if (KEYWORDS.contains(leaf.text)) {
-                    annotate_keyword(element, holder)
+        when (element) {
+            is LeafPsiElement ->
+                when (element.elementType) {
+                    RacketTypes.HASH_LANG ->
+                        annotateHashLang(holder, element)
+                    RacketTypes.IDENTIFIER ->
+                        if (KEYWORDS.contains(element.text)) {
+                            annotateKeyword(element, holder)
+                        }
                 }
-            }
         }
     }
 
-    private fun annotate_keyword(element: PsiElement, holder: AnnotationHolder) {
+    private fun annotateKeyword(element: PsiElement, holder: AnnotationHolder) {
         val annotation = holder.createInfoAnnotation(element, null)
         annotation.textAttributes = DefaultLanguageHighlighterColors.KEYWORD
     }
 
-    private fun annotate_hash_lang(holder: AnnotationHolder, leaf: LeafPsiElement) {
+    private fun annotateHashLang(holder: AnnotationHolder, leaf: LeafPsiElement) {
         val hashLangRange = TextRange(leaf.startOffset, leaf.startOffset + 5)
         val annotation = holder.createInfoAnnotation(hashLangRange, null)
         annotation.textAttributes = DefaultLanguageHighlighterColors.KEYWORD
