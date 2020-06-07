@@ -1,16 +1,16 @@
 // This is a generated file. Not intended for manual editing.
 package org.racket.lang.core.psi;
 
-import com.intellij.psi.tree.IElementType;
-import com.intellij.psi.PsiElement;
 import com.intellij.lang.ASTNode;
-import org.racket.lang.core.psi.impl.*;
+import com.intellij.psi.PsiElement;
+import com.intellij.psi.tree.IElementType;
+import org.racket.lang.core.psi.impl.RacketDatumImpl;
+import org.racket.lang.core.psi.impl.RacketFormImpl;
 
 public interface RacketElementTypes {
 
   IElementType DATUM = new RacketElementType("DATUM");
   IElementType FORM = new RacketElementType("FORM");
-  IElementType ITEM = new RacketElementType("ITEM");
 
   IElementType BOOLEAN = new RacketTokenType("BOOLEAN");
   IElementType CHARACTER = new RacketTokenType("CHARACTER");
@@ -38,9 +38,6 @@ public interface RacketElementTypes {
       }
       else if (type == FORM) {
         return new RacketFormImpl(node);
-      }
-      else if (type == ITEM) {
-        return new RacketItemImpl(node);
       }
       throw new AssertionError("Unknown element type: " + type);
     }

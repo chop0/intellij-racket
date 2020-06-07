@@ -17,19 +17,25 @@
 
 RacketFile ::= HASH_LANG Item*
 
-Item ::= (Form | COMMENT | SEXP_COMMENT | CRLF)
+private Item ::=
+  Form
+  | COMMENT
+  | SEXP_COMMENT
+  | CRLF
 
-Form ::= Datum
-       | DOT
-       | CHARACTER
-       | NUMBER
-       | BOOLEAN
-       | STRING
-       | IDENTIFIER
-       | KEYWORD
-       | OPEN_PAREN Item* CLOSE_PAREN
-       | OPEN_SQUARE Item* CLOSE_SQUARE
-       // | OPEN_BRACE Item* CLOSE_BRACE
+Form ::=
+  Datum
+  | DOT
+  | CHARACTER
+  | NUMBER
+  | BOOLEAN
+  | STRING
+  | IDENTIFIER
+  | KEYWORD
+  | OPEN_PAREN Item* CLOSE_PAREN
+  | OPEN_SQUARE Item* CLOSE_SQUARE
+  // | OPEN_BRACE Item* CLOSE_BRACE
 
-Datum ::= CONSTANT Form
-        | UNQUOTE Form
+Datum ::=
+  CONSTANT Form
+  | UNQUOTE Form

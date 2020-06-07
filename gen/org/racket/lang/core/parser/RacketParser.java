@@ -1,15 +1,15 @@
 // This is a generated file. Not intended for manual editing.
 package org.racket.lang.core.parser;
 
+import com.intellij.lang.ASTNode;
+import com.intellij.lang.LightPsiParser;
 import com.intellij.lang.PsiBuilder;
 import com.intellij.lang.PsiBuilder.Marker;
-import static org.racket.lang.core.psi.RacketElementTypes.*;
-import static com.intellij.lang.parser.GeneratedParserUtilBase.*;
-import com.intellij.psi.tree.IElementType;
-import com.intellij.lang.ASTNode;
-import com.intellij.psi.tree.TokenSet;
 import com.intellij.lang.PsiParser;
-import com.intellij.lang.LightPsiParser;
+import com.intellij.psi.tree.IElementType;
+
+import static com.intellij.lang.parser.GeneratedParserUtilBase.*;
+import static org.racket.lang.core.psi.RacketElementTypes.*;
 
 @SuppressWarnings({"SimplifiableIfStatement", "UnusedAssignment"})
 public class RacketParser implements PsiParser, LightPsiParser {
@@ -37,7 +37,7 @@ public class RacketParser implements PsiParser, LightPsiParser {
 
   /* ********************************************************** */
   // CONSTANT Form
-  //         | UNQUOTE Form
+  //   | UNQUOTE Form
   public static boolean Datum(PsiBuilder builder_, int level_) {
     if (!recursion_guard_(builder_, level_, "Datum")) return false;
     if (!nextTokenIs(builder_, "<datum>", CONSTANT, UNQUOTE)) return false;
@@ -73,15 +73,15 @@ public class RacketParser implements PsiParser, LightPsiParser {
 
   /* ********************************************************** */
   // Datum
-  //        | DOT
-  //        | CHARACTER
-  //        | NUMBER
-  //        | BOOLEAN
-  //        | STRING
-  //        | IDENTIFIER
-  //        | KEYWORD
-  //        | OPEN_PAREN Item* CLOSE_PAREN
-  //        | OPEN_SQUARE Item* CLOSE_SQUARE
+  //   | DOT
+  //   | CHARACTER
+  //   | NUMBER
+  //   | BOOLEAN
+  //   | STRING
+  //   | IDENTIFIER
+  //   | KEYWORD
+  //   | OPEN_PAREN Item* CLOSE_PAREN
+  //   | OPEN_SQUARE Item* CLOSE_SQUARE
   public static boolean Form(PsiBuilder builder_, int level_) {
     if (!recursion_guard_(builder_, level_, "Form")) return false;
     boolean result_;
@@ -147,16 +147,17 @@ public class RacketParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
-  // Form | COMMENT | SEXP_COMMENT | CRLF
-  public static boolean Item(PsiBuilder builder_, int level_) {
+  // Form
+  //   | COMMENT
+  //   | SEXP_COMMENT
+  //   | CRLF
+  static boolean Item(PsiBuilder builder_, int level_) {
     if (!recursion_guard_(builder_, level_, "Item")) return false;
     boolean result_;
-    Marker marker_ = enter_section_(builder_, level_, _NONE_, ITEM, "<item>");
     result_ = Form(builder_, level_ + 1);
     if (!result_) result_ = consumeToken(builder_, COMMENT);
     if (!result_) result_ = consumeToken(builder_, SEXP_COMMENT);
     if (!result_) result_ = consumeToken(builder_, CRLF);
-    exit_section_(builder_, level_, marker_, result_, false, null);
     return result_;
   }
 

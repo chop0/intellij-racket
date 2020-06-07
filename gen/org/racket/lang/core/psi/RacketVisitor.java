@@ -1,9 +1,9 @@
 // This is a generated file. Not intended for manual editing.
 package org.racket.lang.core.psi;
 
-import org.jetbrains.annotations.*;
-import com.intellij.psi.PsiElementVisitor;
 import com.intellij.psi.PsiElement;
+import com.intellij.psi.PsiElementVisitor;
+import org.jetbrains.annotations.NotNull;
 
 public class RacketVisitor extends PsiElementVisitor {
 
@@ -12,10 +12,6 @@ public class RacketVisitor extends PsiElementVisitor {
   }
 
   public void visitForm(@NotNull RacketForm o) {
-    visitPsiElement(o);
-  }
-
-  public void visitItem(@NotNull RacketItem o) {
     visitPsiElement(o);
   }
 
