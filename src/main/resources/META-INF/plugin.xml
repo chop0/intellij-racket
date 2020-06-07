@@ -15,17 +15,17 @@
 
     <extensions defaultExtensionNs="com.intellij">
         <fileType name="Racket file"
-                  implementationClass="com.aymanosman.racket.plugin.RacketFileType"
+                  implementationClass="org.racket.lang.core.RacketFileType"
                   fieldName="INSTANCE"
                   language="Racket"
                   extensions="rkt"/>
         <lang.parserDefinition language="Racket"
-                               implementationClass="com.aymanosman.racket.plugin.RacketParserDefinition"/>
+                               implementationClass="org.racket.lang.core.RacketParserDefinition"/>
         <lang.syntaxHighlighterFactory language="Racket"
-                                       implementationClass="com.aymanosman.racket.plugin.RacketSyntaxHighlighterFactory"/>
-        <colorSettingsPage implementation="com.aymanosman.racket.plugin.RacketColorSettingsPage"/>
+                                       implementationClass="org.racket.lang.core.RacketSyntaxHighlighterFactory"/>
+        <colorSettingsPage implementation="org.racket.lang.core.RacketColorSettingsPage"/>
         <annotator language="Racket"
-                   implementationClass="com.aymanosman.racket.plugin.RacketAnnotator"/>
+                   implementationClass="org.racket.lang.core.RacketAnnotator"/>
     </extensions>
 
     <actions>

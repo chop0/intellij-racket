@@ -1,4 +1,4 @@
-package com.aymanosman.racket.plugin;
+package org.racket.lang.core;
 
 import com.intellij.testFramework.fixtures.LightJavaCodeInsightFixtureTestCase;
 
