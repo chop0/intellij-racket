@@ -13,29 +13,33 @@ class RacketSyntaxHighlighter : SyntaxHighlighterBase() {
         return RacketLexerAdapter()
     }
 
-    override fun getTokenHighlights(tokenType: IElementType): Array<TextAttributesKey> {
-        return if (tokenType == RacketElementTypes.IDENTIFIER) {
-            IDENTIFIER_KEYS
-        } else if (tokenType == RacketElementTypes.KEYWORD) {
-            KEYWORD_KEYS
-        } else if (tokenType == RacketElementTypes.STRING) {
-            STRING_KEYS
-        } else if (tokenType == RacketElementTypes.CONSTANT) {
-            CONSTANT_KEYS
-        } else if (tokenType == RacketElementTypes.NUMBER) {
-            NUMBER_KEYS
-        } else if (tokenType == RacketElementTypes.BOOLEAN) {
-            BOOLEAN_KEYS
-        } else if (tokenType == RacketElementTypes.CHARACTER) {
-            CHARACTER_KEYS
-        } else if (tokenType == RacketElementTypes.OPEN_PAREN || tokenType == RacketElementTypes.CLOSE_PAREN || tokenType == RacketElementTypes.OPEN_SQUARE || tokenType == RacketElementTypes.CLOSE_SQUARE) {
-            PARENTHESES_KEYS
-        } else if (tokenType == RacketElementTypes.COMMENT || tokenType == RacketElementTypes.SEXP_COMMENT) {
-            COMMENT_KEYS
-        } else {
-            EMPTY_KEYS
-        }
-    }
+    override fun getTokenHighlights(tokenType: IElementType): Array<TextAttributesKey> =
+            when (tokenType) {
+                RacketElementTypes.IDENTIFIER ->
+                    IDENTIFIER_KEYS
+                RacketElementTypes.KEYWORD ->
+                    KEYWORD_KEYS
+                RacketElementTypes.STRING ->
+                    STRING_KEYS
+                RacketElementTypes.CONSTANT ->
+                    CONSTANT_KEYS
+                RacketElementTypes.NUMBER ->
+                    NUMBER_KEYS
+                RacketElementTypes.BOOLEAN ->
+                    BOOLEAN_KEYS
+                RacketElementTypes.CHARACTER ->
+                    CHARACTER_KEYS
+                RacketElementTypes.OPEN_PAREN,
+                RacketElementTypes.CLOSE_PAREN,
+                RacketElementTypes.OPEN_SQUARE,
+                RacketElementTypes.CLOSE_SQUARE ->
+                    PARENTHESES_KEYS
+                RacketElementTypes.COMMENT,
+                RacketElementTypes.SEXP_COMMENT ->
+                    COMMENT_KEYS
+                else ->
+                    EMPTY_KEYS
+            }
 
     companion object {
         val IDENTIFIER = TextAttributesKey.createTextAttributesKey("RACKET_IDENTIFIER", DefaultLanguageHighlighterColors.IDENTIFIER)
