@@ -1,22 +1,21 @@
 // This is a generated file. Not intended for manual editing.
 package org.racket.lang.core.psi;
 
-import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiElementVisitor;
 import org.jetbrains.annotations.NotNull;
 
 public class RacketVisitor extends PsiElementVisitor {
 
   public void visitDatum(@NotNull RacketDatum o) {
-    visitPsiElement(o);
+    visitElement(o);
   }
 
   public void visitForm(@NotNull RacketForm o) {
-    visitPsiElement(o);
+    visitElement(o);
   }
 
-  public void visitPsiElement(@NotNull PsiElement o) {
-    visitElement(o);
+  public void visitElement(@NotNull RacketElement o) {
+    super.visitElement(o);
   }
 
 }

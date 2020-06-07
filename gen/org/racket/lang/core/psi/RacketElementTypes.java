@@ -6,11 +6,12 @@ import com.intellij.psi.PsiElement;
 import com.intellij.psi.tree.IElementType;
 import org.racket.lang.core.psi.impl.RacketDatumImpl;
 import org.racket.lang.core.psi.impl.RacketFormImpl;
+import org.racket.lang.core.stubs.StubImplementationsKt;
 
 public interface RacketElementTypes {
 
   IElementType DATUM = new RacketElementType("DATUM");
-  IElementType FORM = new RacketElementType("FORM");
+  IElementType FORM = StubImplementationsKt.factory("FORM");
 
   IElementType BOOLEAN = new RacketTokenType("BOOLEAN");
   IElementType CHARACTER = new RacketTokenType("CHARACTER");

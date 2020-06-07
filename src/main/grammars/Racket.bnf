@@ -1,6 +1,7 @@
 {
   parserClass="org.racket.lang.core.parser.RacketParser"
 
+  implements="org.racket.lang.core.psi.RacketElement"
   extends="com.intellij.extapi.psi.ASTWrapperPsiElement"
 
   psiClassPrefix="Racket"
@@ -13,6 +14,8 @@
   tokenTypeClass="org.racket.lang.core.psi.RacketTokenType"
 
   psiImplUtilClass="org.racket.lang.core.psi.impl.RacketPsiImplUtil"
+
+  elementTypeFactory("Form")="org.racket.lang.core.stubs.StubImplementationsKt.factory"
 }
 
 RacketFile ::= HASH_LANG Item*
