@@ -1,4 +1,4 @@
-package org.racket.lang.core
+package org.racket.ide.highlight
 
 import com.intellij.lang.annotation.AnnotationHolder
 import com.intellij.lang.annotation.Annotator
@@ -9,7 +9,7 @@ import com.intellij.psi.impl.source.tree.LeafPsiElement
 import org.racket.lang.core.psi.RacketTypes
 import java.util.*
 
-class RacketAnnotator : Annotator {
+class RacketSyntaxHighlightAnnotator : Annotator {
     override fun annotate(element: PsiElement, holder: AnnotationHolder) {
         if (element is LeafPsiElement) {
             val leaf = element

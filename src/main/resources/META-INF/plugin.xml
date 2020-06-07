@@ -29,7 +29,7 @@
                                        implementationClass="org.racket.lang.core.RacketSyntaxHighlighterFactory"/>
         <colorSettingsPage implementation="org.racket.lang.core.RacketColorSettingsPage"/>
         <annotator language="Racket"
-                   implementationClass="org.racket.lang.core.RacketAnnotator"/>
+                   implementationClass="org.racket.ide.highlight.RacketSyntaxHighlightAnnotator"/>
     </extensions>
 
     <actions>
