@@ -14,8 +14,8 @@ import com.intellij.psi.tree.IFileElementType
 import com.intellij.psi.tree.TokenSet
 import org.racket.lang.core.lexer.RacketLexerAdapter
 import org.racket.lang.core.parser.RacketParser
+import org.racket.lang.core.psi.RacketElementTypes
 import org.racket.lang.core.psi.RacketFile
-import org.racket.lang.core.psi.RacketTypes
 
 class RacketParserDefinition : ParserDefinition {
     override fun createLexer(project: Project): Lexer {
@@ -51,12 +51,12 @@ class RacketParserDefinition : ParserDefinition {
     }
 
     override fun createElement(node: ASTNode): PsiElement {
-        return RacketTypes.Factory.createElement(node)
+        return RacketElementTypes.Factory.createElement(node)
     }
 
     companion object {
         val WHITE_SPACES = TokenSet.create(TokenType.WHITE_SPACE)
-        val COMMENTS = TokenSet.create(RacketTypes.COMMENT)
+        val COMMENTS = TokenSet.create(RacketElementTypes.COMMENT)
         val FILE = IFileElementType(RacketLanguage)
     }
 }

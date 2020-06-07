@@ -2,7 +2,7 @@ package org.racket.lang.core.lexer;
 
 import com.intellij.lexer.FlexLexer;
 import com.intellij.psi.tree.IElementType;
-import org.racket.lang.core.psi.RacketTypes;
+import org.racket.lang.core.psi.RacketElementTypes;
 import com.intellij.psi.TokenType;
 
 %%
@@ -152,7 +152,7 @@ block_comment="#|" ~"|#"
 
 <YYINITIAL> {
   {racket_whitespace}+ { return TokenType.WHITE_SPACE; }
-  {langline} { yybegin(MAIN); return RacketTypes.HASH_LANG; }
+  {langline} { yybegin(MAIN); return RacketElementTypes.HASH_LANG; }
 }
 
 <MAIN> {
@@ -166,33 +166,33 @@ block_comment="#|" ~"|#"
                   || xs.equals("#f")
                   || xs.equals("#T")
                   || xs.equals("#F")) {
-                  return RacketTypes.BOOLEAN;
+                  return RacketElementTypes.BOOLEAN;
               } else {
                   return TokenType.ERROR_ELEMENT;
               }
           }
       }
- {character} { return RacketTypes.CHARACTER; }
- {numbers} { return RacketTypes.NUMBER; }
+ {character} { return RacketElementTypes.CHARACTER; }
+ {numbers} { return RacketElementTypes.NUMBER; }
 
- {keyword} { return RacketTypes.KEYWORD; }
- {str} { return RacketTypes.STRING; }
- {line_comment} { return RacketTypes.COMMENT; }
- {sexp_comment} { return RacketTypes.SEXP_COMMENT; }
- {block_comment} { return RacketTypes.COMMENT; }
+ {keyword} { return RacketElementTypes.KEYWORD; }
+ {str} { return RacketElementTypes.STRING; }
+ {line_comment} { return RacketElementTypes.COMMENT; }
+ {sexp_comment} { return RacketElementTypes.SEXP_COMMENT; }
+ {block_comment} { return RacketElementTypes.COMMENT; }
  // script
 
 
- {list_prefix} "(" { return RacketTypes.OPEN_PAREN; }
- ")" { return RacketTypes.CLOSE_PAREN; }
- {list_prefix} "[" { return RacketTypes.OPEN_SQUARE; }
- "]" { return RacketTypes.CLOSE_SQUARE; }
+ {list_prefix} "(" { return RacketElementTypes.OPEN_PAREN; }
+ ")" { return RacketElementTypes.CLOSE_PAREN; }
+ {list_prefix} "[" { return RacketElementTypes.OPEN_SQUARE; }
+ "]" { return RacketElementTypes.CLOSE_SQUARE; }
 
- {constant}  { return RacketTypes.CONSTANT; }
- {dot} { return RacketTypes.DOT; }
- {unquote} { return RacketTypes.UNQUOTE; }
+ {constant}  { return RacketElementTypes.CONSTANT; }
+ {dot} { return RacketElementTypes.DOT; }
+ {unquote} { return RacketElementTypes.UNQUOTE; }
 
- {identifier}  { return RacketTypes.IDENTIFIER; }
+ {identifier}  { return RacketElementTypes.IDENTIFIER; }
  // #<<
 
  {CRLF}({CRLF}|{WHITE_SPACE})+ { return TokenType.WHITE_SPACE; }

@@ -6,7 +6,7 @@ import com.intellij.openapi.editor.colors.TextAttributesKey
 import com.intellij.openapi.fileTypes.SyntaxHighlighterBase
 import com.intellij.psi.tree.IElementType
 import org.racket.lang.core.lexer.RacketLexerAdapter
-import org.racket.lang.core.psi.RacketTypes
+import org.racket.lang.core.psi.RacketElementTypes
 
 class RacketSyntaxHighlighter : SyntaxHighlighterBase() {
     override fun getHighlightingLexer(): Lexer {
@@ -14,23 +14,23 @@ class RacketSyntaxHighlighter : SyntaxHighlighterBase() {
     }
 
     override fun getTokenHighlights(tokenType: IElementType): Array<TextAttributesKey> {
-        return if (tokenType == RacketTypes.IDENTIFIER) {
+        return if (tokenType == RacketElementTypes.IDENTIFIER) {
             IDENTIFIER_KEYS
-        } else if (tokenType == RacketTypes.KEYWORD) {
+        } else if (tokenType == RacketElementTypes.KEYWORD) {
             KEYWORD_KEYS
-        } else if (tokenType == RacketTypes.STRING) {
+        } else if (tokenType == RacketElementTypes.STRING) {
             STRING_KEYS
-        } else if (tokenType == RacketTypes.CONSTANT) {
+        } else if (tokenType == RacketElementTypes.CONSTANT) {
             CONSTANT_KEYS
-        } else if (tokenType == RacketTypes.NUMBER) {
+        } else if (tokenType == RacketElementTypes.NUMBER) {
             NUMBER_KEYS
-        } else if (tokenType == RacketTypes.BOOLEAN) {
+        } else if (tokenType == RacketElementTypes.BOOLEAN) {
             BOOLEAN_KEYS
-        } else if (tokenType == RacketTypes.CHARACTER) {
+        } else if (tokenType == RacketElementTypes.CHARACTER) {
             CHARACTER_KEYS
-        } else if (tokenType == RacketTypes.OPEN_PAREN || tokenType == RacketTypes.CLOSE_PAREN || tokenType == RacketTypes.OPEN_SQUARE || tokenType == RacketTypes.CLOSE_SQUARE) {
+        } else if (tokenType == RacketElementTypes.OPEN_PAREN || tokenType == RacketElementTypes.CLOSE_PAREN || tokenType == RacketElementTypes.OPEN_SQUARE || tokenType == RacketElementTypes.CLOSE_SQUARE) {
             PARENTHESES_KEYS
-        } else if (tokenType == RacketTypes.COMMENT || tokenType == RacketTypes.SEXP_COMMENT) {
+        } else if (tokenType == RacketElementTypes.COMMENT || tokenType == RacketElementTypes.SEXP_COMMENT) {
             COMMENT_KEYS
         } else {
             EMPTY_KEYS

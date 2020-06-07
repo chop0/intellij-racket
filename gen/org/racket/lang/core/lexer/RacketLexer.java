@@ -4,7 +4,7 @@ package org.racket.lang.core.lexer;
 
 import com.intellij.lexer.FlexLexer;
 import com.intellij.psi.tree.IElementType;
-import org.racket.lang.core.psi.RacketTypes;
+import org.racket.lang.core.psi.RacketElementTypes;
 import com.intellij.psi.TokenType;
 
 
@@ -608,7 +608,7 @@ class RacketLexer implements FlexLexer {
       else {
         switch (zzAction < 0 ? zzAction : ZZ_ACTION[zzAction]) {
           case 1: 
-            { return RacketTypes.NUMBER;
+            { return RacketElementTypes.NUMBER;
             } 
             // fall through
           case 19: break;
@@ -623,47 +623,47 @@ class RacketLexer implements FlexLexer {
             // fall through
           case 21: break;
           case 4: 
-            { return RacketTypes.IDENTIFIER;
+            { return RacketElementTypes.IDENTIFIER;
             } 
             // fall through
           case 22: break;
           case 5: 
-            { return RacketTypes.COMMENT;
+            { return RacketElementTypes.COMMENT;
             } 
             // fall through
           case 23: break;
           case 6: 
-            { return RacketTypes.CONSTANT;
+            { return RacketElementTypes.CONSTANT;
             } 
             // fall through
           case 24: break;
           case 7: 
-            { return RacketTypes.DOT;
+            { return RacketElementTypes.DOT;
             } 
             // fall through
           case 25: break;
           case 8: 
-            { return RacketTypes.UNQUOTE;
+            { return RacketElementTypes.UNQUOTE;
             } 
             // fall through
           case 26: break;
           case 9: 
-            { return RacketTypes.OPEN_PAREN;
+            { return RacketElementTypes.OPEN_PAREN;
             } 
             // fall through
           case 27: break;
           case 10: 
-            { return RacketTypes.CLOSE_PAREN;
+            { return RacketElementTypes.CLOSE_PAREN;
             } 
             // fall through
           case 28: break;
           case 11: 
-            { return RacketTypes.OPEN_SQUARE;
+            { return RacketElementTypes.OPEN_SQUARE;
             } 
             // fall through
           case 29: break;
           case 12: 
-            { return RacketTypes.CLOSE_SQUARE;
+            { return RacketElementTypes.CLOSE_SQUARE;
             } 
             // fall through
           case 30: break;
@@ -676,7 +676,7 @@ class RacketLexer implements FlexLexer {
                   || xs.equals("#f")
                   || xs.equals("#T")
                   || xs.equals("#F")) {
-                  return RacketTypes.BOOLEAN;
+                  return RacketElementTypes.BOOLEAN;
               } else {
                   return TokenType.ERROR_ELEMENT;
               }
@@ -685,27 +685,27 @@ class RacketLexer implements FlexLexer {
             // fall through
           case 31: break;
           case 14: 
-            { return RacketTypes.SEXP_COMMENT;
+            { return RacketElementTypes.SEXP_COMMENT;
             } 
             // fall through
           case 32: break;
           case 15: 
-            { return RacketTypes.KEYWORD;
+            { return RacketElementTypes.KEYWORD;
             } 
             // fall through
           case 33: break;
           case 16: 
-            { return RacketTypes.STRING;
+            { return RacketElementTypes.STRING;
             } 
             // fall through
           case 34: break;
           case 17: 
-            { yybegin(MAIN); return RacketTypes.HASH_LANG;
+            { yybegin(MAIN); return RacketElementTypes.HASH_LANG;
             } 
             // fall through
           case 35: break;
           case 18: 
-            { return RacketTypes.CHARACTER;
+            { return RacketElementTypes.CHARACTER;
             } 
             // fall through
           case 36: break;

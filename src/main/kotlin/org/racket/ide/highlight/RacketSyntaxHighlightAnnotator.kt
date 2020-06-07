@@ -6,7 +6,7 @@ import com.intellij.openapi.editor.DefaultLanguageHighlighterColors
 import com.intellij.openapi.util.TextRange
 import com.intellij.psi.PsiElement
 import com.intellij.psi.impl.source.tree.LeafPsiElement
-import org.racket.lang.core.psi.RacketTypes
+import org.racket.lang.core.psi.RacketElementTypes
 import java.util.*
 
 class RacketSyntaxHighlightAnnotator : Annotator {
@@ -14,9 +14,9 @@ class RacketSyntaxHighlightAnnotator : Annotator {
         when (element) {
             is LeafPsiElement ->
                 when (element.elementType) {
-                    RacketTypes.HASH_LANG ->
+                    RacketElementTypes.HASH_LANG ->
                         annotateHashLang(holder, element)
-                    RacketTypes.IDENTIFIER ->
+                    RacketElementTypes.IDENTIFIER ->
                         if (KEYWORDS.contains(element.text)) {
                             annotateKeyword(element, holder)
                         }

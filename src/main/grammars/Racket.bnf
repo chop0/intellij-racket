@@ -8,7 +8,7 @@
   psiPackage="org.racket.lang.core.psi"
   psiImplPackage="org.racket.lang.core.psi.impl"
 
-  elementTypeHolderClass="org.racket.lang.core.psi.RacketTypes"
+  elementTypeHolderClass="org.racket.lang.core.psi.RacketElementTypes"
   elementTypeClass="org.racket.lang.core.psi.RacketElementType"
   tokenTypeClass="org.racket.lang.core.psi.RacketTokenType"
 

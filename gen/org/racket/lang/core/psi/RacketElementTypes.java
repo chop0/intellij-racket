@@ -6,7 +6,7 @@ import com.intellij.psi.PsiElement;
 import com.intellij.lang.ASTNode;
 import org.racket.lang.core.psi.impl.*;
 
-public interface RacketTypes {
+public interface RacketElementTypes {
 
   IElementType DATUM = new RacketElementType("DATUM");
   IElementType FORM = new RacketElementType("FORM");

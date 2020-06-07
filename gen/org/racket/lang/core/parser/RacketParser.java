@@ -3,7 +3,7 @@ package org.racket.lang.core.parser;
 
 import com.intellij.lang.PsiBuilder;
 import com.intellij.lang.PsiBuilder.Marker;
-import static org.racket.lang.core.psi.RacketTypes.*;
+import static org.racket.lang.core.psi.RacketElementTypes.*;
 import static com.intellij.lang.parser.GeneratedParserUtilBase.*;
 import com.intellij.psi.tree.IElementType;
 import com.intellij.lang.ASTNode;
