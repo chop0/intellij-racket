@@ -39,6 +39,10 @@
         <annotator language="Racket"
                    implementationClass="org.racket.ide.highlight.RacketSyntaxHighlightAnnotator"/>
 
+        <!-- commenter -->
+
+        <lang.commenter language="Racket" implementationClass="org.racket.ide.commenter.RacketCommenter"/>
+
         <!-- color settings -->
 
         <colorSettingsPage implementation="org.racket.lang.core.RacketColorSettingsPage"/>
