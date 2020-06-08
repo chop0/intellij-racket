@@ -1,8 +1,8 @@
-package org.racket.lang.core
+package org.racket.ide.highlight
 
 import com.intellij.testFramework.fixtures.LightJavaCodeInsightFixtureTestCase
 
-class RacketAnnotatorTest : LightJavaCodeInsightFixtureTestCase() {
+class RacketSyntaxHighlightAnnotatorTest : LightJavaCodeInsightFixtureTestCase() {
     override fun getTestDataPath(): String {
         return "src/test/testData"
     }
