@@ -1,4 +1,4 @@
-package org.racket.lang.core
+package org.racket.lang.core.parser
 
 import com.intellij.lang.ASTNode
 import com.intellij.lang.ParserDefinition
@@ -12,8 +12,8 @@ import com.intellij.psi.PsiFile
 import com.intellij.psi.TokenType
 import com.intellij.psi.tree.IFileElementType
 import com.intellij.psi.tree.TokenSet
+import org.racket.lang.core.RacketLanguage
 import org.racket.lang.core.lexer.RacketLexerAdapter
-import org.racket.lang.core.parser.RacketParser
 import org.racket.lang.core.psi.RacketElementTypes
 import org.racket.lang.core.psi.RacketFile
 

@@ -18,13 +18,19 @@
     <depends>com.intellij.modules.java</depends>
 
     <extensions defaultExtensionNs="com.intellij">
+
+        <!-- file-type factory -->
+
         <fileType name="Racket file"
                   implementationClass="org.racket.lang.core.RacketFileType"
                   fieldName="INSTANCE"
                   language="Racket"
                   extensions="rkt"/>
+
+        <!-- parser -->
+
         <lang.parserDefinition language="Racket"
-                               implementationClass="org.racket.lang.core.RacketParserDefinition"/>
+                               implementationClass="org.racket.lang.core.parser.RacketParserDefinition"/>
         <lang.syntaxHighlighterFactory language="Racket"
                                        implementationClass="org.racket.lang.core.RacketSyntaxHighlighterFactory"/>
         <colorSettingsPage implementation="org.racket.lang.core.RacketColorSettingsPage"/>

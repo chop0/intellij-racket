@@ -1,4 +1,4 @@
-package org.racket.lang.core
+package org.racket.lang.core.parser
 
 import com.intellij.testFramework.ParsingTestCase
 
