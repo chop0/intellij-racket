@@ -2,7 +2,7 @@ package org.racket.lang.core.psi
 
 import com.intellij.openapi.project.Project
 import com.intellij.psi.PsiFileFactory
-import org.racket.lang.core.RacketFileType
+import org.racket.lang.RacketFileType
 
 object RacketElementFactory {
     fun createForm(project: Project?, name: String?): RacketForm {

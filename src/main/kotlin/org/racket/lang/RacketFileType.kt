@@ -1,7 +1,8 @@
-package org.racket.lang.core
+package org.racket.lang
 
 import com.intellij.openapi.fileTypes.LanguageFileType
 import com.intellij.openapi.vfs.VirtualFile
+import org.racket.lang.core.RacketIcons
 import javax.swing.Icon
 
 object RacketFileType : LanguageFileType(RacketLanguage) {

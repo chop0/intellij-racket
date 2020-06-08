@@ -22,7 +22,7 @@
         <!-- file-type factory -->
 
         <fileType name="Racket"
-                  implementationClass="org.racket.lang.core.RacketFileType"
+                  implementationClass="org.racket.lang.RacketFileType"
                   fieldName="INSTANCE"
                   language="Racket"
                   extensions="rkt"/>

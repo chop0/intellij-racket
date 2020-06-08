@@ -12,7 +12,7 @@ import com.intellij.psi.PsiFile
 import com.intellij.psi.TokenType
 import com.intellij.psi.tree.IFileElementType
 import com.intellij.psi.tree.TokenSet
-import org.racket.lang.core.RacketLanguage
+import org.racket.lang.RacketLanguage
 import org.racket.lang.core.lexer.RacketLexerAdapter
 import org.racket.lang.core.psi.RacketElementTypes
 import org.racket.lang.core.psi.RacketFile

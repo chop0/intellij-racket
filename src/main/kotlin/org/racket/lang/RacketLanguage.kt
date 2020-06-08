@@ -1,4 +1,4 @@
-package org.racket.lang.core
+package org.racket.lang
 
 import com.intellij.lang.Language
 
