@@ -33,9 +33,16 @@
                                implementationClass="org.racket.lang.core.parser.RacketParserDefinition"/>
         <lang.syntaxHighlighterFactory language="Racket"
                                        implementationClass="org.racket.lang.core.RacketSyntaxHighlighterFactory"/>
-        <colorSettingsPage implementation="org.racket.lang.core.RacketColorSettingsPage"/>
+
+        <!-- annotator -->
+
         <annotator language="Racket"
                    implementationClass="org.racket.ide.highlight.RacketSyntaxHighlightAnnotator"/>
+
+        <!-- color settings -->
+
+        <colorSettingsPage implementation="org.racket.lang.core.RacketColorSettingsPage"/>
+
     </extensions>
 
     <actions>
