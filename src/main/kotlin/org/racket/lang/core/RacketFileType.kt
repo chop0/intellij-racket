@@ -1,26 +1,17 @@
 package org.racket.lang.core
 
 import com.intellij.openapi.fileTypes.LanguageFileType
+import com.intellij.openapi.vfs.VirtualFile
 import javax.swing.Icon
 
-class RacketFileType private constructor() : LanguageFileType(RacketLanguage) {
-    override fun getName(): String {
-        return "Racket file"
-    }
+object RacketFileType : LanguageFileType(RacketLanguage) {
+    override fun getName(): String = "Racket"
 
-    override fun getDescription(): String {
-        return "Racket language file"
-    }
+    override fun getDescription(): String = "Racket files"
 
-    override fun getDefaultExtension(): String {
-        return "rkt"
-    }
+    override fun getDefaultExtension(): String = "rkt"
 
-    override fun getIcon(): Icon? {
-        return RacketIcons.FILE
-    }
+    override fun getIcon(): Icon? = RacketIcons.FILE
 
-    companion object {
-        val INSTANCE = RacketFileType()
-    }
+    override fun getCharset(file: VirtualFile, content: ByteArray): String = "UTF-8"
 }

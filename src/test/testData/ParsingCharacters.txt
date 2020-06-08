@@ -1,4 +1,4 @@
-Racket file(0,31)
+Racket(0,31)
   PsiElement(RacketTokenType.HASH_LANG)('#lang racket')(0,12)
   PsiWhiteSpace('\n\n')(12,14)
   RacketFormImpl(FORM)(14,23)

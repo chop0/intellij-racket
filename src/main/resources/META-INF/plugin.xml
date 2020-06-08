@@ -21,7 +21,7 @@
 
         <!-- file-type factory -->
 
-        <fileType name="Racket file"
+        <fileType name="Racket"
                   implementationClass="org.racket.lang.core.RacketFileType"
                   fieldName="INSTANCE"
                   language="Racket"
