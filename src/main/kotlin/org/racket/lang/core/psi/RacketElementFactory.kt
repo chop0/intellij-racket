@@ -13,6 +13,6 @@ object RacketElementFactory {
     fun createFile(project: Project?, text: String?): RacketFile {
         val name = "dummy.rkt"
         return PsiFileFactory.getInstance(project)
-                .createFileFromText(name, RacketFileType.Companion.INSTANCE, text!!) as RacketFile
+                .createFileFromText(name, RacketFileType.INSTANCE, text!!) as RacketFile
     }
 }

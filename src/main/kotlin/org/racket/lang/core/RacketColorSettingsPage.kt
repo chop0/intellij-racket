@@ -42,13 +42,13 @@ class RacketColorSettingsPage : ColorSettingsPage {
 
     companion object {
         val DESCRIPTORS = arrayOf(
-                AttributesDescriptor("Identifier", RacketSyntaxHighlighter.Companion.IDENTIFIER),
-                AttributesDescriptor("Keyword", RacketSyntaxHighlighter.Companion.KEYWORD),
-                AttributesDescriptor("Comment", RacketSyntaxHighlighter.Companion.COMMENT),
-                AttributesDescriptor("String", RacketSyntaxHighlighter.Companion.STRING),
-                AttributesDescriptor("Constant", RacketSyntaxHighlighter.Companion.CONSTANT),  // TODO this is confusing QUOTE?
-                AttributesDescriptor("Number", RacketSyntaxHighlighter.Companion.NUMBER),
-                AttributesDescriptor("Boolean", RacketSyntaxHighlighter.Companion.BOOLEAN),
-                AttributesDescriptor("Parentheses", RacketSyntaxHighlighter.Companion.PARENTHESES))
+                AttributesDescriptor("Identifier", RacketSyntaxHighlighter.IDENTIFIER),
+                AttributesDescriptor("Keyword", RacketSyntaxHighlighter.KEYWORD),
+                AttributesDescriptor("Comment", RacketSyntaxHighlighter.COMMENT),
+                AttributesDescriptor("String", RacketSyntaxHighlighter.STRING),
+                AttributesDescriptor("Constant", RacketSyntaxHighlighter.CONSTANT),  // TODO this is confusing QUOTE?
+                AttributesDescriptor("Number", RacketSyntaxHighlighter.NUMBER),
+                AttributesDescriptor("Boolean", RacketSyntaxHighlighter.BOOLEAN),
+                AttributesDescriptor("Parentheses", RacketSyntaxHighlighter.PARENTHESES))
     }
 }

@@ -8,7 +8,7 @@ import org.racket.lang.core.RacketLanguage
 
 class RacketFile(viewProvider: FileViewProvider) : PsiFileBase(viewProvider, RacketLanguage) {
     override fun getFileType(): FileType {
-        return RacketFileType.Companion.INSTANCE
+        return RacketFileType.INSTANCE
     }
 
     override fun toString(): String {
