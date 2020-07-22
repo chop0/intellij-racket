@@ -23,6 +23,8 @@ class RacketSyntaxHighlighter : SyntaxHighlighterBase() {
                     STRING_KEYS
                 RacketElementTypes.CONSTANT ->
                     CONSTANT_KEYS
+                RacketElementTypes.UNQUOTE ->
+                    UNQUOTE_KEYS
                 RacketElementTypes.NUMBER ->
                     NUMBER_KEYS
                 RacketElementTypes.BOOLEAN ->
@@ -46,6 +48,7 @@ class RacketSyntaxHighlighter : SyntaxHighlighterBase() {
         val KEYWORD = TextAttributesKey.createTextAttributesKey("RACKET_KEYWORD", DefaultLanguageHighlighterColors.KEYWORD)
         val STRING = TextAttributesKey.createTextAttributesKey("RACKET_STRING", DefaultLanguageHighlighterColors.STRING)
         val CONSTANT = TextAttributesKey.createTextAttributesKey("RACKET_CONSTANT", DefaultLanguageHighlighterColors.CONSTANT)
+        val UNQUOTE = TextAttributesKey.createTextAttributesKey("RACKET_UNQUOTE", DefaultLanguageHighlighterColors.CONSTANT)
         val NUMBER = TextAttributesKey.createTextAttributesKey("RACKET_NUMBER", DefaultLanguageHighlighterColors.NUMBER)
         val BOOLEAN = TextAttributesKey.createTextAttributesKey("RACKET_BOOLEAN", DefaultLanguageHighlighterColors.KEYWORD)
         val PARENTHESES = TextAttributesKey.createTextAttributesKey("RACKET_PARENTHESES", DefaultLanguageHighlighterColors.PARENTHESES)
@@ -55,6 +58,7 @@ class RacketSyntaxHighlighter : SyntaxHighlighterBase() {
         val KEYWORD_KEYS = arrayOf(KEYWORD)
         val STRING_KEYS = arrayOf(STRING)
         val CONSTANT_KEYS = arrayOf(CONSTANT)
+        val UNQUOTE_KEYS = arrayOf(UNQUOTE)
         val NUMBER_KEYS = arrayOf(NUMBER)
         val BOOLEAN_KEYS = arrayOf(BOOLEAN)
         val PARENTHESES_KEYS = arrayOf(PARENTHESES)

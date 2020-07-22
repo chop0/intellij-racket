@@ -60,6 +60,14 @@ class RacketParsingTest : ParsingTestCase("", "rkt", RacketParserDefinition()) {
         doTest(true)
     }
 
+    fun testParsingToplevelModuleForm() {
+        doTest(true)
+    }
+
+    fun testParsingToplevelModuleFormWithStringModulePath() {
+        doTest(true)
+    }
+
     override fun getTestDataPath(): String {
         return "src/test/testData"
     }

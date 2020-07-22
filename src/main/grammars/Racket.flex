@@ -152,6 +152,7 @@ block_comment="#|" ~"|#"
 
 <YYINITIAL> {
   {racket_whitespace}+ { return TokenType.WHITE_SPACE; }
+  "(" { yybegin(MAIN); return RacketElementTypes.OPEN_PAREN; }
   {langline} { yybegin(MAIN); return RacketElementTypes.HASH_LANG; }
 }
 

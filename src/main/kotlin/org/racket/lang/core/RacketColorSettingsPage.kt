@@ -20,8 +20,10 @@ class RacketColorSettingsPage : ColorSettingsPage {
         return """#lang racket/base
 ;; This is a comment
 ()
-(define (a-thing a [b 3] #:c 8)
-  (list 42 #t #f #true #false "hello world" #"\x00" 'fixme))"""
+(define (a-thing a [b 3] #:c [c 8])
+  (list 42 #t #f #true #false "hello world" #"\x00" 'fixme))
+`(a b ,(a-thing 42))  
+"""
     }
 
     override fun getAdditionalHighlightingTagToDescriptorMap(): Map<String, TextAttributesKey>? {
@@ -46,7 +48,8 @@ class RacketColorSettingsPage : ColorSettingsPage {
                 AttributesDescriptor("Keyword", RacketSyntaxHighlighter.KEYWORD),
                 AttributesDescriptor("Comment", RacketSyntaxHighlighter.COMMENT),
                 AttributesDescriptor("String", RacketSyntaxHighlighter.STRING),
-                AttributesDescriptor("Constant", RacketSyntaxHighlighter.CONSTANT),  // TODO this is confusing QUOTE?
+                AttributesDescriptor("Constant", RacketSyntaxHighlighter.CONSTANT),
+                AttributesDescriptor("Unquote", RacketSyntaxHighlighter.UNQUOTE),
                 AttributesDescriptor("Number", RacketSyntaxHighlighter.NUMBER),
                 AttributesDescriptor("Boolean", RacketSyntaxHighlighter.BOOLEAN),
                 AttributesDescriptor("Parentheses", RacketSyntaxHighlighter.PARENTHESES))
